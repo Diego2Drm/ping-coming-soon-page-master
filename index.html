@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Ping coming soon page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./output.css">
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+
+  <script src="https://kit.fontawesome.com/74d5ca2fd4.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="w-full flex flex-col items-center font-LibreFranklin bg-orange-50">
+
+  <main class="mt-10 mb-10 text-cente shadow-2xl w-[350px] p-3 md:w-[800px] md:mb-6">
+
+    <div class="flex justify-center w-full mb-11">
+      <img src="./images/logo.svg" alt="logo">
+    </div>
+
+    <div class="space-y-4 w-full text-center">
+      <h1 class="text-Gray font-medium text-3xl">We are launching <span
+          class="font-semibold text-VeryDarkBlue">soon!</span></h1>
+      <h3 class="text-VeryDarkBlue"> Subscribe and get notified</h3>
+    </div>
+
+    <div class="w-full mt-7">
+
+      <form action="" class="w-full md:flex items-center gap-4">
+        <div class="md:w-2/3">
+          <input type="text" placeholder="Your email addres" id="email"
+            class="w-full h-12 p-6 rounded-[40px] border-[1px] border-Blue outline-none text-lg">
+
+          <p class="text-red-500 text-center italic mt-2 pl-8 md:absolute md:mt-3 hidden" id="textAlert">Plaese provide a valid email address</p>
+        </div>
+
+        <button type="submit" id="btnSubmit"
+          class="w-full shadow-lg text-white bg-Blue rounded-[40px] h-12 p-6 flex justify-center items-center mt-3 text-xl  md:w-1/3 md:m-0 hover:bg-PaleBlue hover:shadow-xl">Notify
+          Me</button>
+
+      </form>
+
+    </div>
+
+    <div class="w-full mt-12">
+      <img class="w-full " src="./images/illustration-dashboard.png" alt="illustration-dashboard">
+    </div>
+
+    <div class="w-full flex justify-center gap-10 mt-16 md:mt-3">
+      <div class="icons-container">
+        <i class="fa-brands fa-facebook-f"></i>
+      </div>
+
+      <div class="icons-container">
+        <i class="fa-brands fa-twitter"></i>
+      </div>
+
+      <div class="icons-container">
+        <i class="fa-brands fa-instagram text-2xl"></i>
+      </div>
+
+    </div>
+
+    <div class="mt-9 text-center text-Gray md:mt-5">
+      <p> &copy; Copyright Ping. All rights reserved.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/Diego2Drm">Diego Ramírez</a>.
+    </p>
+  </footer>
+
+  <script>
+   const inputEmail = document.getElementById('email')
+    const textAlert = document.getElementById('textAlert');
+    const btnSubmit = document.getElementById('btnSubmit');
+
+    btnSubmit.addEventListener('click', (e) =>{
+      e.preventDefault();
+      let inputEmail = document.getElementById('email').value;
+      validEmail(inputEmail);
+
+    })
+
+    function validEmail(email) {
+      let expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+      
+      let valid = expReg.test(email);
+      if(valid){
+        textAlert.style.display = 'none'
+        inputEmail.classList.remove('input-error')
+      } else {
+        textAlert.style.display = 'flex'
+        inputEmail.placeholder = "email@example.com"
+        inputEmail.classList.add('input-error')
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

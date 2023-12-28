@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.icons-container{
+    @apply h-11 w-11 border-[1px] border-Blue rounded-full flex items-center justify-center text-blue-500 text-xl cursor-pointer
+}
+.icons-container:hover{
+    @apply bg-blue-600 text-white border-none
+}
+.input-error{
+    @apply border-2 border-red-500
+}
